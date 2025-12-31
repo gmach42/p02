@@ -37,4 +37,5 @@ def test_error_types():
     print("\nTesting no errors...")
     garden_operations(10, 5, "file.txt", "plant")
 
+
 test_error_types()
