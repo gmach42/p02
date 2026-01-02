@@ -1,13 +1,18 @@
+#!/usr/bin/env python3
+
 class GardenError(Exception):
+    """Base class for garden-related errors."""
     pass
 
 
 class PlantError(GardenError):
+    """Exception raised when a plant is unhealthy."""
     def __init__(self):
         super().__init__("The tomato plant is wilting!")
 
 
 class WaterError(GardenError):
+    """Exception raised when there is not enough water."""
     def __init__(self):
         super().__init__("Not enough water in the tank!")
 

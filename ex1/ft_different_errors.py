@@ -1,4 +1,7 @@
+#!/usr/bin/env python3
+
 def garden_operations(nb1, nb2, filename, key):
+    """Test various error types in garden operations."""
     try:
         result = int(nb1) + int(nb2)
         division = nb1 / nb2
@@ -6,6 +9,7 @@ def garden_operations(nb1, nb2, filename, key):
             content = file.read()
         dict = {"plant": "rose", "tree": "oak"}
         value = dict[key]
+        print(result, division, content, value)
         print("All operations completed successfully.")
 
     except ValueError as ve:
