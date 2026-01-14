@@ -1,30 +1,32 @@
 #!/usr/bin/env python3
 
-def check_temperature(temp_str):
-    """Check if the temperature is within a valid range and is an integer."""
+def check_temperature(temp_str) -> int:
+    """Function which return a temp only when a valid input is send"""
     try:
-        temp_int = int(temp_str)
-    except ValueError:
-        raise ValueError(f"'{temp_str}' is not a valid number")
-    if 0 < temp_int < 40:
-        return (f"Temperature {temp_int}°C is perfect for plants!")
-    elif temp_int <= 0:
-        raise ValueError(f"{temp_int}°C is too cold! (min 0°C)")
-    else:
-        raise ValueError(f"{temp_int}°C is too hot! (max 40°C)")
+        temp = int(temp_str)
+        if 0 <= temp <= 40:
+            return temp
+        elif temp < 0:
+            print(f"Error: {temp}°C is too cold for plants (min 0°C)")
+        else:
+            print(f"Error: {temp}°C is too hot for plants (max 40°C)")
+    except Exception:
+        print(f"Error: '{temp_str}' is not a valid number")
 
 
 def test_temperature_input():
-    """Test check_temperature() with various inputs and run despite errors."""
-    print("=== Gardent Temperature Checker ===")
-    temps = ["25", "abc", "100", "-50"]
-    for temp in temps:
-        print(f"\nTesting temperature: {temp}")
-        try:
-            print(check_temperature(temp))
-        except ValueError as e:
-            print(f"Error: {e}")
+    """
+    Test different inputs to demonstrate that the bad data is filtered out
+    """
+    print("=== Garden Temperature Checker ===")
+    test_values = ["25", "abc", "100", "-50"]
+    for value in test_values:
+        print(f"\nTesting temperature: {value}")
+        temp = check_temperature(value)
+        if temp:
+            print(f"Temperature {temp}°C is perfect for plants!")
     print("\nAll tests completed - program didn't crash!")
 
 
-test_temperature_input()
+if __name__ == "__main__":
+    test_temperature_input()
