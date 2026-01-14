@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 
-def check_plant_health(plant_name, water_level, sunlight_hours):
+def check_plant_health(
+        plant_name: str,
+        water_level: int,
+        sunlight_hours: int
+        ) -> str:
     """Check the health of a plant and raise errors accordingly."""
+
     if plant_name == "":
         raise ValueError("Plant name cannot be empty!")
     if water_level < 1:

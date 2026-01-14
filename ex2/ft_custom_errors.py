@@ -19,7 +19,7 @@ class WaterError(GardenError):
         super().__init__("Not enough water in the tank!")
 
 
-def check_garden(plant_health, water_level):
+def check_garden(plant_health: int, water_level: int):
     """Simple function to check garden conditions and raise errors."""
     if plant_health < 5:
         raise PlantError()

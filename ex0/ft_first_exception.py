@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-def check_temperature(temp_str) -> int:
+def check_temperature(temp_str: str) -> int:
     """Function which return a temp only when a valid input is send"""
     try:
         temp = int(temp_str)
