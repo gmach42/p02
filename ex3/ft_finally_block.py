@@ -1,26 +1,50 @@
 #!/usr/bin/env python3
 
-def water_plants(plant_list):
-    """Simulate watering plants in a garden."""
-    print("Opening watering system")
-    for plant in plant_list:
-        print(f"Watering {plant}...")
 
-
-def test_watering_system(plant_list):
-    """Test the watering system with exception handling."""
+def water_plants(plant_list: list[str]):
+    """
+    Simulate watering plants in a garden, raise exception for invalid input
+    and always closes the watering system!
+    """
     try:
-        water_plants(plant_list)
+        print("Opening watering system")
+        for plant in plant_list:
+            if not isinstance(plant, str):
+                raise ValueError("invalid plant")
+            print(f"Watering {plant}")
+
     except Exception as e:
-        print(f"Error: Cannot water {plant_list} -", e)
+        raise Exception(f"Cannot water {plant} - {e}!")
+
+    else:
+        print("Watering completed successfully!")
+
     finally:
         print("Closing watering system (cleanup)")
 
 
-print("=== Garden Watering System ===")
-print("\nTesting normal watering...")
-plant_list = {"tomato", "lettuce", "carrots"}
-test_watering_system(plant_list)
-print("\nTesting with error...")
-plant_list = {}
-test_watering_system(plant_list)
+def test_watering_system():
+    """
+    Test the watering system with valid and invalid inputs
+    and always cleanup!
+    """
+    print("=== Garden Watering System ===")
+
+    try:
+        print("\nTesting normal watering...")
+        valid_list = ["tomato", "lettuce", "carrots"]
+        water_plants(valid_list)
+
+        print("\nTesting with error...")
+        error_list = ["tomato", None, "carrots"]
+        water_plants(error_list)
+
+    except Exception as e:
+        print(f"Error: {e}")
+
+    finally:
+        print("\nCleanup always happens, even with errors!")
+
+
+if __name__ == "__main__":
+    test_watering_system()

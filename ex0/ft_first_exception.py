@@ -4,14 +4,14 @@ def check_temperature(temp_str) -> int:
     """Function which return a temp only when a valid input is send"""
     try:
         temp = int(temp_str)
-        if 0 <= temp <= 40:
-            return temp
-        elif temp < 0:
+        if temp < 0:
             print(f"Error: {temp}°C is too cold for plants (min 0°C)")
-        else:
+        elif temp > 40:
             print(f"Error: {temp}°C is too hot for plants (max 40°C)")
     except Exception:
         print(f"Error: '{temp_str}' is not a valid number")
+    else:
+        return temp
 
 
 def test_temperature_input():
