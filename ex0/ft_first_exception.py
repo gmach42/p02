@@ -8,10 +8,10 @@ def check_temperature(temp_str: str) -> int:
             print(f"Error: {temp}°C is too cold for plants (min 0°C)")
         elif temp > 40:
             print(f"Error: {temp}°C is too hot for plants (max 40°C)")
+        else:
+            return temp
     except Exception:
         print(f"Error: '{temp_str}' is not a valid number")
-    else:
-        return temp
 
 
 def test_temperature_input():
