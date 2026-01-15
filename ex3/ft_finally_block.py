@@ -30,19 +30,15 @@ def test_watering_system():
     """
     print("=== Garden Watering System ===")
 
-    try:
-        print("\nTesting normal watering...")
-        valid_list = ["tomato", "lettuce", "carrots"]
-        water_plants(valid_list)
+    print("\nTesting normal watering...")
+    valid_list = ["tomato", "lettuce", "carrots"]
+    water_plants(valid_list)
 
-        print("\nTesting with error...")
-        error_list = ["tomato", None, "carrots"]
-        water_plants(error_list)
+    print("\nTesting with error...")
+    error_list = ["tomato", None, "carrots"]
+    water_plants(error_list)
 
-    except Exception:
-        pass
-    finally:
-        print("\nCleanup always happens, even with errors!")
+    print("\nCleanup always happens, even with errors!")
 
 
 if __name__ == "__main__":
